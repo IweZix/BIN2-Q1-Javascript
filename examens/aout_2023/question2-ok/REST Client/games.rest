@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000
+
+### Get 3 questions by difficulty
+GET {{baseUrl}}/games/start
+Content-Type: application/json
+
+{
+    "difficulty":"easy"
+}
+
+### Get 3 questions
+GET {{baseUrl}}/games/start
+Content-Type: application/json
+
+{
+    "difficulty": null
+}
+
+### Save a game with good score 
+POST {{baseUrl}}/games
+Content-Type: application/json
+
+{
+    "username": "Luca",
+    "score": "3"
+}
+
+### Save a game with bad score 
+POST {{baseUrl}}/games
+Content-Type: application/json
+
+{
+    "username": "Luca",
+    "score": "-7"
+}
