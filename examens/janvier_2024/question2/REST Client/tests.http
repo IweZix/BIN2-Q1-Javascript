@@ -1,0 +1,162 @@
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hbmFnZXIiLCJpYXQiOjE3MDU0OTU5MTYsImV4cCI6MTc5MTg5NTkxNn0.c0uEWfx8hC9RK2Jd1z7hn_H7K1W8BG3c8Q68B5SXvtU
+
+@baseUrl = http://localhost:3000
+
+
+// 1.	Créer une évaluation en envoyant un score correct pour l’utilisatrice nommée 
+
+### register
+#### First register as pinkLady
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+    "username":"pinkLady",
+    "password":"pinkLady"
+}
+
+### login
+#### First login as pinkLady
+##### Define a request variable nammed pinkLady
+# @name pinkLady
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"pinkLady",
+    "password":"pinkLady"
+}
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+Authorization: {{pinkLady.response.body.token}}
+
+{
+    "id": 1,
+    "score": 3
+}
+
+
+// 2.	Créer une évaluation en envoyant un score correct pour l’utilisateur nommé greenMan 
+
+### register
+#### First register as pinkLady
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+    "username":"greenMan",
+    "password":"greenMan"
+}
+
+### login
+#### First login as pinkLady
+##### Define a request variable nammed pinkLady
+# @name greenMan
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"greenMan",
+    "password":"greenMan"
+}
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+Authorization: {{greenMan.response.body.token}}
+
+{
+    "id": 1,
+    "score": 3
+}
+
+
+// 3.	Tenter de créer une évaluation en envoyant un mauvais score pour l’utilisatrice nommée pinkLady 
+
+### login
+#### First login as pinkLady
+##### Define a request variable nammed pinkLady
+# @name pinkLady
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"pinkLady",
+    "password":"pinkLady"
+}
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+Authorization: {{pinkLady.response.body.token}}
+
+{
+    "id": 1,
+    "score": -4
+}
+
+
+// 4.	Tenter de créer une évaluation pour une citation qui n’existe pas pour l’utilisatrice pinkLady 
+
+### login
+#### First login as pinkLady
+##### Define a request variable nammed pinkLady
+# @name pinkLady
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"pinkLady",
+    "password":"pinkLady"
+}
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+Authorization: {{pinkLady.response.body.token}}
+
+{
+    "id": 100,
+    "score": 3
+}
+
+
+// 5.	Tenter de créer une évaluation d’une citation déjà évaluée par l’utilisateur greenMan 
+### login
+#### First login as pinkLady
+##### Define a request variable nammed pinkLady
+# @name greenMan
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username":"greenMan",
+    "password":"greenMan"
+}
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+Authorization: {{greenMan.response.body.token}}
+
+{
+    "id": 1,
+    "score": 3
+}
+
+
+// 6.	Tenter de créer une évaluation d’une citation pour un utilisateur anonyme (non authentifié).
+
+#### Create an evaluation
+POST {{baseUrl}}/evaluation
+Content-Type: application/json
+
+{
+    "id": 1,
+    "score": 3
+}
+
+
+
