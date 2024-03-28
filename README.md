@@ -6,7 +6,7 @@ This course was taken at the [Haute École Léonard De Vinci](https://www.vinci.
 
 You'll find 5 chapters of exercises on [web2course](https://e-vinci.github.io/web2/). The solutions can be found [here](https://github.com/IweZix/BIN2-Q1-Javascript/tree/main/exercices).
 
-Past exams and their announcements can be found in the [exam repo](https://github.com/IweZix/BIN2-Q1-Javascript/tree/main/examens). (The solutions are not optimal, they are mine except put January 2023 which are that of [Nitroc](https://github.com/cdhaeyere/2BIN-Q1-Javascript)).
+Past exams and their announcements can be found in the [exam repo](https://github.com/IweZix/BIN2-Q1-Javascript/tree/main/examens).
 
 A project was also carried out during the course, it can be found [here](https://github.com/IweZix/BIN2-Q1-Javascript/tree/main/projet)
 
